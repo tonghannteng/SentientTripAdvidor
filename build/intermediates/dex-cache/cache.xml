@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/tonghannteng/Downloads/SentientTripAdvisor/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.3"
-        sha1="03d0220c60efe717f037f8549fa75925343b0533">
-        <dex dex="/Users/tonghannteng/Downloads/SentientTripAdvisor/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_8f3baba718a4b642ca683c512756ead9644b82c5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/tonghannteng/Downloads/SentientTripAdvisor/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Users/tonghannteng/Downloads/SentientTripAdvidor/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.3"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/Users/tonghannteng/Downloads/SentientTripAdvisor/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e1b632d2211263cbb6ec323588c720e86d92de6e/classes.dex" />
+        <dex dex="/Users/tonghannteng/Downloads/SentientTripAdvidor/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ce9964091057aebbb8d8852df2e189dd5c436d25/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tonghannteng/Downloads/SentientTripAdvidor/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.3"
+        sha1="91d8eea46ca123f52b2fecc5d221df70948e62a7">
+        <dex dex="/Users/tonghannteng/Downloads/SentientTripAdvidor/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_c79490a7d87f39af2c2c78cc855b730e6d241c06/classes.dex" />
     </item>
 
 </items>

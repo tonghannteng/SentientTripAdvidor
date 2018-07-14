@@ -1,6 +1,7 @@
 package com.tonghann.sentienttripadvisor.data;
 
 import com.tonghann.sentienttripadvisor.models.Input;
+import com.tonghann.sentienttripadvisor.models.TripInput;
 import com.tonghann.sentienttripadvisor.models.TripPlace;
 
 import retrofit2.Call;
@@ -20,6 +21,6 @@ public interface PlaceService {
 
     @Headers("Content-Type: application/json")
     @POST("trips")
-    Call<TripPlace> getTripDetail(@Body Input input);
+    Call<TripPlace> getTripDetail(@Body TripInput input);
 
 }
