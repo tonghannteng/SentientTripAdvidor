@@ -1,8 +1,10 @@
 package com.tonghann.sentienttripadvisor.place;
 
+import com.tonghann.sentienttripadvisor.Constants;
 import com.tonghann.sentienttripadvisor.data.PlaceService;
 import com.tonghann.sentienttripadvisor.models.Input;
 import com.tonghann.sentienttripadvisor.models.TripPlace;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,7 +24,7 @@ public class PlacePresenter implements PlaceContractor.UserAction {
     }
 
     public void onSearchPressed(String input) {
-        Input inputCon = new Input(input, "", "");
+        Input inputCon = new Input(input, Constants.current_lat, Constants.current_lng);
 
         placeView.showLoading();
 
@@ -31,8 +33,11 @@ public class PlacePresenter implements PlaceContractor.UserAction {
             public void onResponse(Call<TripPlace> call, Response<TripPlace> response) {
                 if (response.isSuccessful()) {
                     TripPlace tripPlace = response.body();
-                    placeView.showPlaces(tripPlace.getPlaces());
-                    placeView.showTrips(tripPlace.getTrips());
+                    if (tripPlace.getPlaces().size() != 0) {
+                        placeView.showPlaces(tripPlace.getPlaces());
+                    } else {
+                        placeView.showTrips(tripPlace.getTrips());
+                    }
                     placeView.hideLoading();
                 }
             }

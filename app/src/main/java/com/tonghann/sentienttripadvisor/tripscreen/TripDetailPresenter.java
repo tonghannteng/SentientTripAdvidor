@@ -1,7 +1,6 @@
 package com.tonghann.sentienttripadvisor.tripscreen;
 
 import com.tonghann.sentienttripadvisor.data.PlaceService;
-import com.tonghann.sentienttripadvisor.models.Input;
 import com.tonghann.sentienttripadvisor.models.TripInput;
 import com.tonghann.sentienttripadvisor.models.TripPlace;
 
@@ -24,9 +23,11 @@ public class TripDetailPresenter implements TripDetailContractor.TripDetailActio
     }
 
     @Override
-    public void onTripDetail(String lat, String lng, String name) {
+    public void onTripDetail(String destination_lat, String lat, String lng, String destination_name, String destination_lng) {
 
-        TripInput tripInput = new TripInput("", "30.402065","-97.725883","Yellowstone National Park");
+        TripInput tripInput = new TripInput(destination_lat, lat, lng, destination_name, destination_lng);
+
+        tripDetailView.showLoading();
 
         service.getTripDetail(tripInput).enqueue(new Callback<TripPlace>() {
             @Override

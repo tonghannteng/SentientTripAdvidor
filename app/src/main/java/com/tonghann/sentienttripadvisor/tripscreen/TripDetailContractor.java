@@ -17,6 +17,6 @@ public interface TripDetailContractor {
 
     interface TripDetailAction {
 
-        void onTripDetail(String lat, String lng, String name);
+        void onTripDetail(String destination_lat, String lat, String lng, String name, String destination_lng);
     }
 }

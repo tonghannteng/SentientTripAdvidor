@@ -36,13 +36,12 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
 
     // View Injection
-    
 
     // JSON Parsing
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     // Logging
     // Image Loading
-    
+
 
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:design:26.+'
@@ -52,5 +51,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.1'
     compile 'com.jakewharton.timber:timber:3.1.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.google.android.gms:play-services-maps:11.0.4'
     testCompile 'junit:junit:4.12'
 }

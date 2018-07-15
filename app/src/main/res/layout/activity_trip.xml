@@ -8,6 +8,7 @@
     tools:context="com.tonghann.sentienttripadvisor.tripscreen.TripActivity">
 
     <RelativeLayout
+        android:id="@+id/flightRelativeId"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginBottom="6dp"
@@ -45,6 +46,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/carRentalLayoutID"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginBottom="6dp"
@@ -82,6 +84,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/hotelLayoutID"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginBottom="6dp"
@@ -99,13 +102,51 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Hotel"
+            android:text="Stay"
             android:textAllCaps="true"
             android:textSize="16dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/hotelCountId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="16dp"
+            android:text="0"
+            android:textAllCaps="true"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/thingToDoLayoutID"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="6dp"
+        android:background="@color/colorGreen">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="16dp"
+            android:src="@drawable/baseline_thing_do" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Things to do"
+            android:textAllCaps="true"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/thingToDoCountId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -25,6 +26,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
 
     private List<Place> places;
     private PlaceItemListener itemListener;
+    private MapItemListener mapItemListener;
 
     private WeakReference<Context> context;
 
@@ -33,6 +35,8 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
         @Bind(R.id.placeIconId) ImageView imagePlaceIcon;
         @Bind(R.id.placeNameId) TextView placeNameId;
         @Bind(R.id.ratingId) TextView ratingId;
+        @Bind(R.id.mainClickId) LinearLayout mainClickId;
+        @Bind(R.id.mapIconId) ImageView mapIconId;
 
         PlaceItemListener itemListener;
 
@@ -41,27 +45,29 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
             ButterKnife.bind(this, v);
 
             this.itemListener = itemListener;
-            v.setOnClickListener(this);
+            v.findViewById(R.id.mainClickId).setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             Place place = getTrip(getAdapterPosition());
-            this.itemListener.onPlaceClick(place.getName());
+            this.itemListener.onPlaceClick(place);
         }
-
     }
 
-    public PlaceAdapter(Context context, List<Place> places, PlaceItemListener itemListener) {
+    public PlaceAdapter(Context context,
+                        List<Place> places,
+                        PlaceItemListener itemListener,
+                        MapItemListener mapItemListener) {
         this.context = new WeakReference<>(context);
         this.places = places;
         this.itemListener = itemListener;
+        this.mapItemListener = mapItemListener;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_layout, parent, false);
-
         return new ViewHolder(v, itemListener);
 
     }
@@ -69,7 +75,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        Place place = places.get(position);
+        final Place place = places.get(position);
         holder.placeNameId.setText("Places Name: "+place.getName());
         holder.ratingId.setText("Rating: "+String.valueOf(place.getRating()));
         Picasso.with(context.get())
@@ -77,6 +83,14 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
                 .resize(80, 108)
                 .centerInside()
                 .into(holder.imagePlaceIcon);
+
+        holder.mapIconId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapItemListener.goToMap(place);
+            }
+        });
+
     }
 
     @Override
@@ -94,6 +108,9 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
     }
 
     public interface PlaceItemListener {
-        void onPlaceClick(String placeName);
+        void onPlaceClick(Place place);
+    }
+    public interface MapItemListener {
+        void goToMap(Place place);
     }
 }

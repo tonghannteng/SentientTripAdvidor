@@ -1,11 +1,12 @@
 
 package com.tonghann.sentienttripadvisor.models;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class TripPlace {
+public class TripPlace implements Serializable {
 
     @SerializedName("trips")
     @Expose

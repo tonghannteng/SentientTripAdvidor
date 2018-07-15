@@ -1,4 +1,3 @@
-
 package com.tonghann.sentienttripadvisor.models;
 
 import com.google.gson.annotations.Expose;
@@ -6,37 +5,37 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Place implements Serializable {
+/**
+ * Created by tonghannteng on 7/14/18.
+ */
 
-    @SerializedName("lat")
-    @Expose
-    private Double lat;
+public class Hotels implements Serializable {
+
     @SerializedName("rating")
     @Expose
-    private Double rating;
+    private String rating;
     @SerializedName("image")
     @Expose
     private String image;
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("lng")
+    @SerializedName("address")
     @Expose
-    private Double lng;
+    private String address;
 
-    public Double getLat() {
-        return lat;
+    public Hotels(String rating, String image, String name, String address) {
+        this.rating = rating;
+        this.image = image;
+        this.name = name;
+        this.address = address;
     }
 
-    public void setLat(Double lat) {
-        this.lat = lat;
-    }
-
-    public Double getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(Double rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
@@ -56,12 +55,11 @@ public class Place implements Serializable {
         this.name = name;
     }
 
-    public Double getLng() {
-        return lng;
+    public String getAddress() {
+        return address;
     }
 
-    public void setLng(Double lng) {
-        this.lng = lng;
+    public void setAddress(String address) {
+        this.address = address;
     }
-
 }

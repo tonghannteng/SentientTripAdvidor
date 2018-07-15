@@ -4,7 +4,9 @@ package com.tonghann.sentienttripadvisor.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class FlightItinerarySummary {
+import java.io.Serializable;
+
+public class FlightItinerarySummary implements Serializable {
 
     @SerializedName("OutboundStopCount")
     @Expose

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,8 +21,13 @@ import android.widget.Toast;
 
 import com.tonghann.sentienttripadvisor.R;
 import com.tonghann.sentienttripadvisor.di.Injector;
+import com.tonghann.sentienttripadvisor.map.MapsActivity;
 import com.tonghann.sentienttripadvisor.models.Place;
 import com.tonghann.sentienttripadvisor.models.Trips;
+import com.tonghann.sentienttripadvisor.triplistscreen.activity.CarRentalActivity;
+import com.tonghann.sentienttripadvisor.triplistscreen.activity.HotelActivity;
+import com.tonghann.sentienttripadvisor.triplistscreen.activity.ThingToDoActivity;
+import com.tonghann.sentienttripadvisor.triplistscreen.activity.TripListActivity;
 import com.tonghann.sentienttripadvisor.tripscreen.TripActivity;
 
 import java.util.ArrayList;
@@ -36,6 +40,7 @@ public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, PlaceContractor.View {
 
     private static final String TAG = "MainActivity";
+    private static final String TAG1 = "TripActivity";
 
     private PlaceAdapter placeAdapter;
     private PlaceContractor.UserAction userAction;
@@ -48,6 +53,12 @@ public class MainActivity extends BaseActivity
     @Bind(R.id.hotelCountId) TextView hotelCountId;
     @Bind(R.id.tripLayoutId) LinearLayout tripLayoutId;
     @Bind(R.id.placeLayoutId) RelativeLayout placeLayoutId;
+    @Bind(R.id.thingToDoCountId) TextView thingToDoCountId;
+    @Bind(R.id.flightRelativeId) RelativeLayout flightRelativeId;
+    @Bind(R.id.carRentalLayoutID) RelativeLayout carRentalLayoutID;
+    @Bind(R.id.hotelLayoutID) RelativeLayout hotelLayoutID;
+    @Bind(R.id.thingToDoLayoutID) RelativeLayout thingToDoLayoutID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,14 +87,14 @@ public class MainActivity extends BaseActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         userAction = new PlacePresenter(this, Injector.provideTripService());
-        placeAdapter = new PlaceAdapter(this, new ArrayList<Place>(0), itemListener);
+        placeAdapter = new PlaceAdapter(this, new ArrayList<Place>(0), itemListener, mapItemListener);
 
         configureLayout();
     }
 
     @Override
     public void showPlaces(List<Place> places) {
-        if (places != null) {
+        if (places.size() != 0) {
             tripLayoutId.setVisibility(View.GONE);
             placeLayoutId.setVisibility(View.VISIBLE);
             txtEmptyID.setVisibility(View.GONE);
@@ -93,10 +104,47 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
-    public void showTrips(Trips trips) {
+    public void showTrips(final Trips trips) {
+        tripLayoutId.setVisibility(View.VISIBLE);
+        placeLayoutId.setVisibility(View.GONE);
+        txtEmptyID.setVisibility(View.GONE);
         flightCountId.setText(String.valueOf(trips.getFlights().size()));
         carRentalCountId.setText(String.valueOf(trips.getCarRentals().size()));
         hotelCountId.setText(String.valueOf(trips.getHotels().size()));
+        thingToDoCountId.setText(String.valueOf(trips.getThingsToDo().size()));
+
+        flightRelativeId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), TripListActivity.class);
+                intent.putExtra(TAG1, trips);
+                startActivity(intent);
+            }
+        });
+        carRentalLayoutID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CarRentalActivity.class);
+                intent.putExtra(TAG1, trips);
+                startActivity(intent);
+            }
+        });
+        hotelLayoutID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), HotelActivity.class);
+                intent.putExtra(TAG1, trips);
+                startActivity(intent);
+            }
+        });
+        thingToDoLayoutID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ThingToDoActivity.class);
+                intent.putExtra(TAG1, trips);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -124,12 +172,22 @@ public class MainActivity extends BaseActivity
     private PlaceAdapter.PlaceItemListener itemListener = new PlaceAdapter.PlaceItemListener() {
 
         @Override
-        public void onPlaceClick(String placeName) {
+        public void onPlaceClick(Place place) {
             Intent intent = new Intent(getApplicationContext(), TripActivity.class);
-            intent.putExtra(TAG, placeName);
+            intent.putExtra(TAG, place);
             startActivity(intent);
         }
 
+
+    };
+
+    private PlaceAdapter.MapItemListener mapItemListener = new PlaceAdapter.MapItemListener() {
+        @Override
+        public void goToMap(Place place) {
+            Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+            intent.putExtra(TAG, place);
+            startActivity(intent);
+        }
     };
 
     @Override

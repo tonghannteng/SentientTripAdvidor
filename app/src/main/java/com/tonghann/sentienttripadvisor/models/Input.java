@@ -1,10 +1,12 @@
 package com.tonghann.sentienttripadvisor.models;
 
+import java.io.Serializable;
+
 /**
  * Created by tonghannteng on 7/14/18.
  */
 
-public class Input {
+public class Input implements Serializable {
 
     private String input;
     private String current_lat;

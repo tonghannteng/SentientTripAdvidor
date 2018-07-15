@@ -4,7 +4,9 @@ package com.tonghann.sentienttripadvisor.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Flight {
+import java.io.Serializable;
+
+public class Flight implements Serializable {
 
     @SerializedName("FlightPriceSummary")
     @Expose
