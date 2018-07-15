@@ -12,12 +12,48 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/tonghannteng/.android/build-cache/3f7f60051473a7c7855c876e0ab4be056b31f863/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.3"
+        sha1="2430e711762a749feb00b3d64858ca4768251b9d">
+        <dex dex="/Users/tonghannteng/Downloads/SentientTripAdvidor/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a408906d25159a90b1e39a9665b4c4b7d23b51b6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tonghannteng/.android/build-cache/2f6c63c7d06f34b120141bc946bf742e94f6c8e8/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.3"
+        sha1="364364bf77b4a71afc5930fc3ae57b3f0eea637c">
+        <dex dex="/Users/tonghannteng/Downloads/SentientTripAdvidor/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9c076eaa1a3b898b58d0cc92e8fb434da48e1611/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tonghannteng/.android/build-cache/50f28ef02aaeb12ca089611d25d00575440671f0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.3"
+        sha1="fcae52a60bc07924d370b4d376116cd8f8581f54">
+        <dex dex="/Users/tonghannteng/Downloads/SentientTripAdvidor/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7efec18e5f03e1ed5aef34842db518e923fb041c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/tonghannteng/Downloads/SentientTripAdvidor/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.3"
-        sha1="91d8eea46ca123f52b2fecc5d221df70948e62a7">
+        sha1="a046b310c18f820670bfb65ace3eeb6584fe82fa">
         <dex dex="/Users/tonghannteng/Downloads/SentientTripAdvidor/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_c79490a7d87f39af2c2c78cc855b730e6d241c06/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tonghannteng/.android/build-cache/d9ff00fbb674c2c9f8638737aca8ff96b5a48465/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.3"
+        sha1="70ffe00aaf049893f59d1dad57bd82992faa38ef">
+        <dex dex="/Users/tonghannteng/Downloads/SentientTripAdvidor/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0d5777ffda2a3997b6e54d227d075d385dd2d432/classes.dex" />
     </item>
 
 </items>
